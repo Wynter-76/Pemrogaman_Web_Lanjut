@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\PraktikumController;
+use App\Http\Controllers\ProdukController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,3 +48,4 @@ Route::get('home', [PraktikumController::class, 'home']);
 Route::get('produk', [PraktikumController::class, 'product']);
 Route::get('transaksi', [PraktikumController::class, 'transaction']);
 Route::get('laporan', [PraktikumController::class, 'report']);
+Route::get('tampil-produk', [ProdukController::class, 'index']);
