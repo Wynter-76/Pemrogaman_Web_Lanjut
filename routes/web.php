@@ -16,10 +16,6 @@ Route::get('bio', function () {
     return view('biodata');
 });
 
-Route::get('produk', function () {
-    return view('produk');
-});
-
 Route::get('nama', function () {
     return view('nama', ['name' => 'Kunti Eliyen']);
 });
@@ -49,3 +45,13 @@ Route::get('produk', [PraktikumController::class, 'product']);
 Route::get('transaksi', [PraktikumController::class, 'transaction']);
 Route::get('laporan', [PraktikumController::class, 'report']);
 Route::get('tampil-produk', [ProdukController::class, 'index']);
+Route::get('tambah-produk', [ProdukController::class,'create'])->name('produk.create');
+
+//simpan data produk
+Route::post('tampil-produk',[ProdukController::class,'store'])->name('produk.store');
+
+//update
+Route::put('/produk/update/{id}',[ProdukController::class,'update'])->name('produk.update');
+
+//Delete
+Route::delete('/produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');

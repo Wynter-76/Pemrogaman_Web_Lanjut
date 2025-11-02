@@ -4,7 +4,10 @@
 <br>
 <div class="container">
     <h2>Tabel Produk</h2>
-    <a href="" class="btn btn-success">+Tambah Data</a>
+    {{-- Tidak bisa jika menggunakan href tidak muncul pop up --}}
+    {{-- ////// --}}
+    {{-- <a href="{{route('produk.create')}}" class="btn btn-success">+Tambah Data</a> --}}
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambahProduk">+Tambah Data</button>
     <table class="table table-bordered table stripper" id="tabel-produk">
         <thead>
             <tr>
@@ -25,13 +28,36 @@
                 <td> {{ number_format($data->harga, 0, ',', '.') }}</td>
                 <td> {{ $data->stock}}</td>
                 <td>
-                    <button class="btn btn-warning">Ubah</button>
-                    <button class="btn btn-danger">Hapus</button>
+                    <button class="btn btn-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalEditProduk{{ $data->id }}">
+                    Ubah</button>
+                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#modalHapusProduk{{ $data->id }}">Hapus</button>
                 </td>
             </tr>
+            @include('produk.edit', ['data' => $data])
+            @include('produk.delete',['dat'=> $data])
             @endforeach
         </tbody>
 
     </table>
 </div>
-@endsection
+
+
+
+
+
+
+
+@include('produk.create')
+
+@stop
+
+@push('scripts')
+<script>
+$(function(){
+    $('tabel-produk').DataTable();
+});
+</script>
+@endpush
