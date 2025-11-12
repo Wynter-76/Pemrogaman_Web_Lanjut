@@ -37,7 +37,7 @@
                 </td>
             </tr>
             @include('produk.edit', ['data' => $data])
-            @include('produk.delete',['dat'=> $data])
+            @include('produk.delete',['data'=> $data])
             @endforeach
         </tbody>
 

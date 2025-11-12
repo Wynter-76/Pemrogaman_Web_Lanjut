@@ -13,6 +13,9 @@
           <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}" href="produk">Produk</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('kategori') ? 'active' : '' }}" href="kategori">Kategori</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('transaksi') ? 'active' : '' }}" href="transaksi">Transaksi</a>
         </li>
         <li class="nav-item">

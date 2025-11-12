@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\PraktikumController;
 use App\Http\Controllers\ProdukController;
+use App\Models\Kategori;
+use App\Http\Controllers\KategoriController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,7 +43,8 @@ Route::get('home', function () {
 });
 
 Route::get('home', [PraktikumController::class, 'home']);
-Route::get('produk', [PraktikumController::class, 'product']);
+Route::get('produk', [ProdukController::class, 'index']);
+Route::get('kategori', [KategoriController::class, 'index']);
 Route::get('transaksi', [PraktikumController::class, 'transaction']);
 Route::get('laporan', [PraktikumController::class, 'report']);
 Route::get('tampil-produk', [ProdukController::class, 'index']);
@@ -55,3 +58,16 @@ Route::put('/produk/update/{id}',[ProdukController::class,'update'])->name('prod
 
 //Delete
 Route::delete('/produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+
+
+
+//Produk
+Route::get('tampil-kategori', [KategoriController::class, 'index']);
+//tambah data kategori
+Route::get('tambah-kategori', [KategoriController::class, 'create_k'])->name('kategori.create_k');
+//simpan data kategori
+Route::post('tampil-kategori', [KategoriController::class, 'store'])->name('kategori.store');
+//update
+Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+//delete
+Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');

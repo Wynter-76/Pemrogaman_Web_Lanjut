@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('produk', function (Blueprint $table){
-            $table->string('kode_produk')->after('id');
+        schema::create('kategori', function(blueprint $table){
+            $table->id();
+            $table->string('nama_kategori',255);
+            $table->timestamps();
         });
     }
 
