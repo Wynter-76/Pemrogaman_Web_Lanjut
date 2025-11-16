@@ -21,7 +21,18 @@
                         <label class="form-label">Nama Produk</label>
                         <input type="text" class="form-control" name="nama_produk" value="{{ $data->nama_produk }}" required>
                     </div>
-
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select name="kategori_id" class="form-select" required>
+                            @foreach ($kategori as $kat)
+                            <option value="{{ $kat->id }}" {{$kat->id == $data->kategori_id ? 'selected' : ''}}>
+                                {{$kat->nama_kategori}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    
                     <div class="mb-3">
                         <label class="form-label">Harga</label>
                         <input type="number" class="form-control" name="harga" value="{{ $data->harga }}" required>

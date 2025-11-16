@@ -12,4 +12,7 @@ class Kategori extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['id','nama_kategori'];
 
+    public function produk(){
+        return $this->hasMany(Produk::class);
+    }
 }

@@ -4,21 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\Kategori;
 class ProdukController extends Controller
 {
     public function index(){
         $data = Produk :: all();
-            return view('produk.index',['dataProduk' => $data]);
+        $kategori = Kategori::all();
+        return view('produk.index',['dataProduk' => $data,
+        'kategori'=> $kategori]);
     }
 
     public function create(){
-        return view('produk.create');
+        $kategori = Kategori :: all();
+        return view('produk.create', compact('kategori'));
     }
 
     public function store(Request $request){
         $data = new Produk();
         $data->id = $request->id;
         $data->nama_produk = $request->nama_produk;
+        $data->kategori_id = $request->kategori;
         $data->harga = $request->harga;
         $data->stock = $request->stock;
         $data->save();
@@ -28,6 +33,7 @@ class ProdukController extends Controller
     public function update(Request $request, $id){
         $produk = Produk::findOrFail($id);
         $produk->nama_produk = $request->nama_produk;
+        $produk->kategori_id = $request->kategori_id;
         $produk->harga = $request->harga;
         $produk->stock = $request->stock;
         $produk->update();

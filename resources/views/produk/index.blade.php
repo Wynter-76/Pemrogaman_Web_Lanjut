@@ -14,6 +14,7 @@
                 <th style="width:1%">No.</th>
                 <th style="width:5%">Kode Produk</th>
                 <th style="width:5%">Nama Produk</th>
+                <th style="width:5%">Kategori</th>
                 <th style="width:5%">Harga</th>
                 <th style="width:5%">Stok</th>
                 <th style="width:5%">Aksi</th>
@@ -22,9 +23,10 @@
         <tbody>
             @foreach($dataProduk as $data)
             <tr>
-                <td> {{ $loop->iteration}}</td>
+                <td> {{ $loop->iteration }}</td>
                 <td> {{ $data->id}}</td>
-                <td> {{ $data->nama_produk}}</td>
+                <td> {{ $data->nama_produk }}</td>
+                <td> {{ $data->kategori->nama_kategori ?? '-' }} </td>
                 <td> {{ number_format($data->harga, 0, ',', '.') }}</td>
                 <td> {{ $data->stock}}</td>
                 <td>
