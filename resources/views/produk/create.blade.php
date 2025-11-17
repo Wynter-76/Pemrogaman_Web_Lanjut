@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="from group">
-                        <label for="nama">Kategori <span class="text-danger">*</span></label><br>
+                        <label for="nama">Kategori <span class="text-danger">*</span></label>
                         <select name="kategori" required>
                             @foreach ($kategori as $category)
                                 <option value="{{ $category ->id}}">{{ $category->nama_kategori}}</option>
