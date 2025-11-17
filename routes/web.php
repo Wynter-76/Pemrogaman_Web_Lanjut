@@ -71,3 +71,14 @@ Route::post('tampil-kategori', [KategoriController::class, 'store'])->name('kate
 Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 //delete
 Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+
+
+//Export Excel
+Route::get('/export-produk', [ProdukController::class, 'excel'])->name('produk.excel');
+
+//Export PDF
+Route::get('/produk/export/pdf', [ProdukController::class, 'pdf'])->name('produk.pdf');
+
+//Chart
+Route::get('/produk/chart', [ProdukController::class, 'chart'])->name('produk.chart');
+

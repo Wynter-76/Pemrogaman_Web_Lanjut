@@ -8,6 +8,9 @@
     {{-- ////// --}}
     {{-- <a href="{{route('produk.create')}}" class="btn btn-success">+Tambah Data</a> --}}
     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambahProduk">+Tambah Data</button>
+    <a href="{{route('produk.excel')}} " class="btn btn-primary">Excel</a>
+    <a href="{{route('produk.pdf')}}" class="btn btn-secondary pull-right" target="_blank">PDF</a>
+    <a href="{{route('produk.chart')}}" class="btn btn-secondary pull-right">Chart</a>
     <table class="table table-bordered table stripper" id="tabel-produk">
         <thead>
             <tr>
